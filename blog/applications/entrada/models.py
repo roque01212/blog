@@ -73,4 +73,4 @@ class Entry(TimeStampedModel):
         verbose_name_plural='Entradas'
 
     def __str__(self):
-        return self.title
+        return self.title 
