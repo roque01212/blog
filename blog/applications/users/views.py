@@ -35,7 +35,7 @@ class UserRegisterView(FormView):
             form.cleaned_data['email'],
             form.cleaned_data['full_name'],
             form.cleaned_data['password1'],
-            ocupation=form.cleaned_data['apellidos'],
+            ocupation=form.cleaned_data['ocupation'],
             genero=form.cleaned_data['genero'],
             date_birth=form.cleaned_data['date_birth'],
         )
@@ -55,7 +55,7 @@ class LoginUser(FormView):
             password=form.cleaned_data['password']
         )
         login(self.request, user)
-        return super(LoginUser, self).form_valid(form)
+        return super(LoginUser, self).form_valid(form) 
 
 
 class LogoutView(View):

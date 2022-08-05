@@ -28,7 +28,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         'Fecha de nacimiento', 
         blank=True,
         null=True
-    )
+    ) 
     #
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
