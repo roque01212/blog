@@ -27,14 +27,15 @@ from .models import User
 class UserRegisterView(FormView):
     template_name = 'users/register.html'
     form_class = UserRegisterForm
-    success_url = reverse_lazy('users_app:user-login')
+    success_url = reverse_lazy('users_app:Login')
 
     def form_valid(self, form):
         #
         User.objects.create_user(
             form.cleaned_data['email'],
-            form.cleaned_data['full_name'],
             form.cleaned_data['password1'],
+            # se mandan como extra field
+            full_name=form.cleaned_data['full_name'],
             ocupation=form.cleaned_data['ocupation'],
             genero=form.cleaned_data['genero'],
             date_birth=form.cleaned_data['date_birth'],
@@ -47,7 +48,7 @@ class UserRegisterView(FormView):
 class LoginUser(FormView):
     template_name = 'users/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('home_app:home-user')
+    success_url = reverse_lazy('home_app:Index')
 
     def form_valid(self, form):
         user = authenticate(

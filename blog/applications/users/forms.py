@@ -51,11 +51,6 @@ class UserRegisterForm(forms.ModelForm):
                     'placeholder':'Ocupacion ...'
                 }
             ),
-            'genero':forms.TextInput(
-                attrs={
-                    'placeholder':'Genero ...'
-                }
-            ),
             'date_birth':forms.DateInput(
                 attrs={
                     'type':'date',
