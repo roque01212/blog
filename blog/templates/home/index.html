@@ -3,9 +3,12 @@
 {% load  static %}
 
 {% block title %}
-    inicio
+    {{home.title}}
 {% endblock title %}
-    
+
+{% block description %} 
+<meta name="description" content="{{home.description}}">
+{% endblock description %}
 
 {% block content %}
 

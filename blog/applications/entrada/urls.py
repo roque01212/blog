@@ -11,7 +11,7 @@ urlpatterns = [
         name='Entradas',
     ),
     path(
-        'detalle/<pk>', 
+        'detalle/<pk>/', 
         views.EntryDetailView.as_view(),
         name='Detalle',
     ),

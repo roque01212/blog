@@ -1,0 +1,53 @@
+<!-- head para PC -->
+{% extends "favoritos/base_favoritos.html" %}
+{% load static %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center" style="margin-top: 1em;">
+        <!-- bloque de datos de usuario -->
+        <div class="cell small-12 large-4">
+            <div class="callout">
+                <h5>{{ user.full_name }}</h5>
+                <p>{{ user.email }} - {{ user.ocupation }} - {{ user.date_birth }}</p>
+                <a href="#">Editar Datos</a>
+                <p>
+                    <a href="{% url 'users_app:Logout' %}" class="crear button secondary">Cerrar secion</a>
+                </p>
+            </div>
+        </div>
+        <!-- FIN bloque de datos de usuario -->
+
+
+        <!-- bloque de articulos favoritos de usuario -->
+        <div class="cell large-8 grid-x grid-margin-x align-center">
+
+            {% for i in entradas_user  %}
+            <div class="cell small-12">
+                <div class="card-favoritos">
+                    <img class="card-favoritos-img" src="{{ i.entry.image.url }}">
+                    <div class="card-favoritos-body">
+                        <h3 class="card-favoritos-body-titulo">{{ i.entry.title }}</h3>
+                        <p class="card-favoritos-body-text">{{ i.entry.resume }}</p>                                    <!---# ELIMINAMOS LA ENTRADA NO EL FAVORITO--->         
+                        <form class="card-favoritos-body-actions" method="POST" enctype="multipart/form-data" action="{% url 'favorito_app:Delete-entrada' i.id %}">
+                            {% csrf_token %}
+                            <a class="button warning" href="{% url 'entrada_app:Detalle' i.entry.id %}">Ver</a>
+                            <button type="submit" class="button alert ">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <h2 style="color:red ;">No tienes articulos favoritos</h2>
+            {% endfor %}
+
+        </div>
+        <!-- FIN bloque de articulos favoritos de usuario -->
+    </div>
+</div>
+{% include "includes/footer.html" %}
+
+{% endblock content %}

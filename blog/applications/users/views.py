@@ -48,7 +48,7 @@ class UserRegisterView(FormView):
 class LoginUser(FormView):
     template_name = 'users/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('home_app:Index')
+    success_url = reverse_lazy('favorito_app:Perfil')
 
     def form_valid(self, form):
         user = authenticate(
@@ -65,7 +65,7 @@ class LogoutView(View):
         logout(request)
         return HttpResponseRedirect(
             reverse(
-                'users_app:user-login'
+                'users_app:Login'
             )
         )
 

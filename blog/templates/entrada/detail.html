@@ -1,6 +1,16 @@
 <!-- head para PC -->
 {% extends "entrada/base_entrada.html" %}
 {% load  static %}
+
+{% block title %}
+    {{entry.title}}
+{% endblock title %}
+
+{% block description %} 
+<meta name="description" content="{{entry.resume}}">
+{% endblock description %}
+
+
 {% block content %}
 {% include "includes/header.html" %}
 
@@ -25,14 +35,22 @@
             <div class="card" style="width: 100%;">
                 <img src="{{entry.image.url}}">
                 <div class="card-section" style="width: 100%;">
-                  <div class="blog-action">
-                    <a class="button alert" href="#">Agregar a Favoritos</a>
-                  </div>
+                    
+                
+                        
+                        
+                        <form class="blog-action" method="POST" action="{% url 'favorito_app:Add-entrada' entry.id %}">{% csrf_token %}
+                            <button type="submit" class="button alert ">Agregar a Favoritos</button>
+                        </form>
+           
+     
+                    
+                    
+                        
                 </div>
             </div>
         </div>
         <!-- FIN bloque llamada a la accion -->
-
     </div>
 </div>
 {% include "includes/footer.html" %}

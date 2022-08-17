@@ -27,6 +27,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.child('media')
 
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # ckeditor setting
 CKEDITOR_UPLOAD_PATH='uploads/'
 CKEDITOR_IMAGE_BACKEND='pillow'

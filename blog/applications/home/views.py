@@ -39,10 +39,10 @@ class HomePageView(TemplateView):
 
 class SuscriberCreateView(CreateView):
     form_class=SuscribersForm
-    success_url='.'
+    success_url='/'
 
 
 class ContactCreateView(CreateView):
     form_class=ContacForm
-    success_url='.'
+    success_url='/'
     

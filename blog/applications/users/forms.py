@@ -67,7 +67,7 @@ class LoginForm(forms.Form):
     email = forms.CharField(
         label='E-mail',
         required=True,
-        widget=forms.TextInput(
+        widget=forms.EmailInput(
             attrs={
                 'placeholder': 'Correo Electronico',
             }

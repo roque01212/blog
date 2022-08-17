@@ -11,12 +11,12 @@ urlpatterns = [
         name='Index',
     ),
     path(
-        'register-suscription', 
+        'register-suscription/', 
         views.SuscriberCreateView.as_view(),
         name='Register',
     ), 
     path(
-        'contact', 
+        'contact/', 
         views.ContactCreateView.as_view(),
         name='Contact',
     ), 
